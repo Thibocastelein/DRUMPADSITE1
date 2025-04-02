@@ -1,0 +1,161 @@
+#open-preset-screen {
+    width: 140px;
+    height: 100px;
+    background: #88b2ca;
+    color: #ffffff; /* Lichtblauwe tekstkleur */
+    font-size: 16px;
+    font-weight: bold;
+    border: 4px solid #363636; /* Blauwe rand */
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 
+    0 3.2px 1.6px 0.8px rgba(255, 255, 255, 0.1) inset, 
+    0 -3.2px 1.6px 0.8px rgba(0, 0, 0, 0.5) inset, 
+    0 8px 10.4px 0 rgba(0, 0, 0, 0.3);    animation: flicker 1.5s infinite; /* Flikkerend effect */
+    text-shadow: 0 0 5px rgba(176, 196, 222, 0.8); /* Blauwe tekstgloed */
+  }
+  
+  #open-preset-screen::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://www.transparenttextures.com/patterns/noise.png'); /* Ruis-textuur */
+    opacity: 0.2; /* Transparantie van de ruis */
+    z-index: 1;
+    pointer-events: none;
+    animation: static-noise 0.3s infinite; /* Bewegende ruis */
+  }
+  
+  #open-preset-screen::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+      rgba(0, 0, 0, 0.3) 0,
+      rgba(0, 0, 0, 0.3) 2px,
+      rgba(255, 255, 255, 0.05) 2px,
+      rgba(255, 255, 255, 0.05) 4px
+    );
+    z-index: 2;
+    pointer-events: none;
+    opacity: 0.15; /* Transparantie van de scanlines */
+    mix-blend-mode: multiply; /* Vermengt de scanlines met de achtergrond */
+  }
+  
+  /* Bewegende pixels */
+  @keyframes pixel-shift {
+    0% {
+      transform: translate(0, 0);
+    }
+    25% {
+      transform: translate(-3px, 3px);
+    }
+    50% {
+      transform: translate(3px, -3px);
+    }
+    75% {
+      transform: translate(-2px, 2px);
+    }
+    100% {
+      transform: translate(0, 0);
+    }
+  }
+  
+  /* Flikkerend effect */
+  @keyframes flicker {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.85;
+    }
+  }
+  
+  /* Animatie voor bewegende ruis */
+  @keyframes static-noise {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 100px 100px;
+    }
+  }
+
+  .preset-content {
+    background-color: #88b2ca;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    border: 6px solid #4d4d4d;
+    text-shadow: 0 0 5px rgba(176, 196, 222, 0.8);
+    animation: flicker 1.5s infinite;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .preset-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://www.transparenttextures.com/patterns/noise.png');
+    opacity: 0.2;
+    z-index: 1;
+    pointer-events: none;
+    animation: static-noise 0.3s infinite;
+  }
+
+  .preset-content::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+      rgba(0, 0, 0, 0.3) 0,
+      rgba(0, 0, 0, 0.3) 2px,
+      rgba(255, 255, 255, 0.05) 2px,
+      rgba(255, 255, 255, 0.05) 4px
+    );
+    z-index: 2;
+    pointer-events: none;
+    opacity: 0.15;
+    mix-blend-mode: multiply;
+  }
+
+  @keyframes static-noise {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 100px 100px;
+    }
+  }
+
+  @media screen and (max-width: 590px) {
+    #open-preset-screen {
+      width: 77px;
+      height: 69px;
+      font-size: 12px;
+      box-shadow: 
+      0 1.6px 0.8px 0.4px rgba(255, 255, 255, 0.1) inset, 
+      0 -1.6px 0.8px 0.4px rgba(0, 0, 0, 0.5) inset, 
+      0 4px 5.2px 0 rgba(0, 0, 0, 0.3);
+    }
+  }
